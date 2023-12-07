@@ -24,9 +24,12 @@ public class MainActivity extends AppCompatActivity {
         Python py = Python.getInstance();
         PyObject module = py.getModule("chaquopy_test");
         try{
-            float randomNumber = module.callAttr("create_random_number").toFloat();
+//            float randomNumber = module.callAttr("create_random_number").toFloat();
+//            TextView textView = findViewById(R.id.text_view);
+//            textView.setText(Float.toString(randomNumber));
+            String x = module.callAttr("sample_torch").toString();
             TextView textView = findViewById(R.id.text_view);
-            textView.setText(Float.toString(randomNumber));
+            textView.setText(x);
         } catch (PyException e) {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
